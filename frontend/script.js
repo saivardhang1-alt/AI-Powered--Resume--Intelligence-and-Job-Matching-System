@@ -64,6 +64,14 @@ form.addEventListener("submit", async function(event) {
         <h3>Missing Keywords</h3>
         <p>${analysis.missing_keywords.join(", ") || "None"}</p>
     </div>
+    <div class="analysis-card">
+    <h3>AI Resume Improvement Suggestions</h3>
+    <ul>
+        ${(analysis.suggestions || []).map(item =>
+            `DIL0`
+        ).join("")}
+    </ul>
+</div>
 `;
     } catch (error) {
         result.textContent = "Error: " + error.message;
