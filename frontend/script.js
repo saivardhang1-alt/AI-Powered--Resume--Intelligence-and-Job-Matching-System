@@ -36,14 +36,35 @@ form.addEventListener("submit", async function(event) {
 
         const analysis = data.analysis;
 
-        result.innerHTML = `
-            <h2>Resume Analysis Result</h2>
-            <p>Match Score: ${analysis.match_score}%</p>
-            <p>Matched Skills: ${analysis.matched_skills.join(", ") || "None"}</p>
-            <p>Missing Skills: ${analysis.missing_skills.join(", ") || "None"}</p>
-            <p>Missing Keywords: ${analysis.missing_keywords.join(", ") || "None"}</p>
-        `;
+       result.innerHTML = `
+    <h2>Resume Analysis Result</h2>
 
+    <div class="score-card">
+        <h3>ATS Match Score</h3>
+        <h1>${analysis.match_score}%</h1>
+
+<div class="progress-bar">
+    <div class="progress"
+         style="width: ${analysis.match_score}%">
+    </div>
+</div>
+    </div>
+
+    <div class="analysis-card">
+        <h3>Matched Skills</h3>
+        <p>${analysis.matched_skills.join(", ") || "None"}</p>
+    </div>
+
+    <div class="analysis-card">
+        <h3>Missing Skills</h3>
+        <p>${analysis.missing_skills.join(", ") || "None"}</p>
+    </div>
+
+    <div class="analysis-card">
+        <h3>Missing Keywords</h3>
+        <p>${analysis.missing_keywords.join(", ") || "None"}</p>
+    </div>
+`;
     } catch (error) {
         result.textContent = "Error: " + error.message;
     }
