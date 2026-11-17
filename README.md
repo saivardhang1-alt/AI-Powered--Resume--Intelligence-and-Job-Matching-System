@@ -40,3 +40,5 @@ frontend/
     index.html
     style.css
     script.js
+##Application Screenshots
+![Resume Analyzer](screenshots/resume-analyzer.png)
