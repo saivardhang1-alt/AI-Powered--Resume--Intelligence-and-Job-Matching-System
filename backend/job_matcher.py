@@ -20,10 +20,32 @@ def match_resume_with_job(resume_text, job_description):
         resume_text,
         job_description
     )
+    suggestions = []
+
+if missing_skills:
+    suggestions.append(
+        "Improve your resume by adding relevant missing skills that you genuinely possess."
+    )
+
+if missing_keywords:
+    suggestions.append(
+        "Include relevant missing keywords naturally in your resume."
+    )
+
+if score < 50:
+    suggestions.append(
+        "Consider improving your resume according to the job requirements."
+    )
+
+if not suggestions:
+    suggestions.append(
+        "Your resume has good alignment with the job description. Keep improving your experience and achievements."
+    )
 
     return {
         "match_score": score,
         "matched_skills": resume_skills,
         "missing_skills": missing_skills,
         "missing_keywords": missing_keywords
+        "suggestions":suggestions
     }
