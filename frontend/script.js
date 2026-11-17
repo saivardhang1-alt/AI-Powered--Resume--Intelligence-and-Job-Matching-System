@@ -21,7 +21,7 @@ form.addEventListener("submit", async function(event) {
 
     try {
         const response = await fetch(
-            "http://127.0.0.1:8000/upload-resume/",
+            "http://127.0.0.1:8000/analyze-resume/",
             {
                 method: "POST",
                 body: formData
@@ -41,6 +41,7 @@ form.addEventListener("submit", async function(event) {
             <p>Match Score: ${analysis.match_score}%</p>
             <p>Matched Skills: ${analysis.matched_skills.join(", ") || "None"}</p>
             <p>Missing Skills: ${analysis.missing_skills.join(", ") || "None"}</p>
+            <p>Missing Keywords: ${analysis.missing_keywords.join(", ") || "None"}</p>
         `;
 
     } catch (error) {
